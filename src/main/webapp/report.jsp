@@ -8,5 +8,9 @@
 </head>
 <body>
 	<h1>Report page</h1>
+	
+	<label for="" class="label">Enter Employee Id</label>
+	<input type="text" name="employee_id" placeholder="Employee Id" required="">
+	
 </body>
 </html>
