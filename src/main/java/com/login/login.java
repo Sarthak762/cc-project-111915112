@@ -1,6 +1,8 @@
 package com.login;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,26 +12,29 @@ import javax.servlet.http.HttpSession;
 
 import com.login.dao.AuthDao;
 
-/**
- * Servlet implementation class login
- */
-@WebServlet("/login")
-public class login extends HttpServlet {
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String username = req.getParameter("username");
-		String password = req.getParameter("password");
-		
-		 AuthDao dao= new AuthDao();
-         if(dao.check(username, password))
-         {
-             HttpSession session=  req.getSession();
-             session.setAttribute("username", username);
-             res.sendRedirect("welcome.jsp");
-         }
-         else
-         {
-             res.sendRedirect("login.jsp");
-         }
-		
-	}
+
+@WebServlet("/Login")
+public class Login extends HttpServlet {
+
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String employee_id=request.getParameter("employee-id");
+        String pass=request.getParameter("password");
+
+
+        AuthDao dao= new AuthDao();
+            if(dao.check(employee_id, pass))
+            {
+                HttpSession session=  request.getSession();
+                session.setAttribute("employee_id", employee_id);
+                response.sendRedirect("report.jsp");
+            }
+            else
+            {
+
+                response.sendRedirect("login.jsp");
+            }
+    }
 }

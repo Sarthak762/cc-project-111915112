@@ -11,7 +11,7 @@
   <h2>Login</h2>
   <form action="login" method="post">
     <p>
-    <input type="text" id="username" name="username" placeholder="Username" required=""><i class="validation"><span></span><span></span></i>
+    <input type="text" id="employee-id" name="employee-id" placeholder="Employee Id" required=""><i class="validation"><span></span><span></span></i>
     </p>
     <p>
     <input type="password" id="password" name="password" placeholder="password" required=""><i class="validation"><span></span><span></span></i>

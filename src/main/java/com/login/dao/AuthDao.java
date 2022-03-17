@@ -9,16 +9,16 @@ import java.sql.SQLException;
 
 public class AuthDao {
 
-    String sql="select * from login where username=? and pass=?;";
-    String url="jdbc:mysql://localhost:3306/auth";
+	String sql="select * from sarthakdubey_111915112_detail where Employee_ID=? and Password=?;";
+    String url="jdbc:mysql://localhost:3306/AuthDatabase";
     String username ="root";
-    String password="admin1234";
-    public boolean check(String uname,String pass) {
+    String password="1234";
+    public boolean check(String employee_id,String pass) {
         try {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con=DriverManager.getConnection(url,username,password);
         PreparedStatement st=con.prepareStatement(sql);
-        st.setString(1, uname);
+        st.setString(1, employee_id);
         st.setString(2,pass);
 
         ResultSet rs=st.executeQuery();
@@ -32,5 +32,6 @@ public class AuthDao {
         }
         return false;
     }
+
 
 }
