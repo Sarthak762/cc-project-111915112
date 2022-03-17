@@ -9,7 +9,7 @@
 <body>
 <div id="login-form-wrap">
   <h2>Login</h2>
-  <form action="login" method="post">
+  <form action="Login" method="post">
     <p>
     <input type="text" id="employee-id" name="employee-id" placeholder="Employee Id" required=""><i class="validation"><span></span><span></span></i>
     </p>

@@ -23,7 +23,7 @@ public class Login extends HttpServlet {
         String employee_id=request.getParameter("employee-id");
         String pass=request.getParameter("password");
 
-
+        System.out.println(employee_id);
         AuthDao dao= new AuthDao();
             if(dao.check(employee_id, pass))
             {

@@ -9,18 +9,17 @@ import java.sql.SQLException;
 
 public class AuthDao {
 
-	String sql="select * from sarthakdubey_111915112_detail where Employee_ID=? and Password=?;";
+	String sql="select * from sarthakdubey_111915112_detail where Employee_ID=? and password=?;";
     String url="jdbc:mysql://localhost:3306/AuthDatabase";
-    String username ="root";
-    String password="1234";
+
     public boolean check(String employee_id,String pass) {
         try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con=DriverManager.getConnection(url,username,password);
+        Connection con=DriverManager.getConnection(url,"root","admin1234");
         PreparedStatement st=con.prepareStatement(sql);
         st.setString(1, employee_id);
         st.setString(2,pass);
-
+        System.out.println("login"+employee_id);
         ResultSet rs=st.executeQuery();
 
         if(rs.next())
